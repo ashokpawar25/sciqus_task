@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{login.css}" />
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container">
+        <form th:action="@{/login}" method="post" onsubmit="return validateLoginForm()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" th:required="required">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" th:required="required">
+            <br>
+            <button type="submit" >Login</button>
+        </form>
+
+        <!-- Display error message if it exists -->
+        <div th:if="${error}" style="color: red;">
+            <p th:text="${error}"></p>
+        </div>
+    </div>
+
+    <script th:src="@{/resources/script.js}"></script>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        function validateLoginForm() {
+            // Reset error messages
+            document.getElementById("loginError").innerText = "";
+
+            // Get form inputs
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            // Basic validation
+            if (username.trim() === "" || password.trim() === "") {
+                document.getElementById("loginError").innerText = "Please fill in all fields.";
+                return false; // Prevent form submission
+            }
+
+            // Additional validation (e.g., password strength)
+
+            // For demonstration purposes, always return true here (replace with actual validation logic)
+            return true;
+        }
+        /*]]>*/
+    </script>
+</body>
+
+</html>

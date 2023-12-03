@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="studentlist.css">
+    <title>All Students</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>All Students</h2>
+        <div class="student-list" id="studentList">
+            <!-- Student list will be dynamically populated here -->
+            <div style="text-align: center;" th:each="student : ${students}" class="student-card">
+                <h3 th:text="'Name: '+${student.name}"></h3>
+                <p th:text="'Email: '+${student.email}"></p>
+                <p th:text="'username: '+   ${  student.username}"></p>
+                
+                <!-- Button for editing information -->
+                <button th:onclick="'editStudent(\'' + ${student.id} + '\')'">Edit</button>
+
+                <!-- Button for viewing profile -->
+                <button th:onclick="'viewProfile(\'' + ${student.id} + '\')'">View Profile</button>
+            </div>
+        </div>
+
+        <div class="pagination" id="pagination">
+            <!-- Pagination links will be dynamically added here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Edit student function
+        function editStudent(studentId) {
+            // Redirect to the edit-student.html page with the student ID as a parameter
+            window.location.href = 'edit-student.html?id=' + studentId;
+        }
+        var studentsPerPage = 5;
+        // Initial display of students on page load
+        displayStudents(1);
+
+        // Generate pagination links on page load
+        generatePaginationLinks();
+
+    </script>
+</body>
+
+</html>
