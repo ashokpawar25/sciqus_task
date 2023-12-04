@@ -20,7 +20,6 @@
             <button type="submit" >Login</button>
         </form>
 
-        <!-- Display error message if it exists -->
         <div th:if="${error}" style="color: red;">
             <p th:text="${error}"></p>
         </div>
@@ -29,27 +28,18 @@
     <script th:src="@{/resources/script.js}"></script>
 
     <script th:inline="javascript">
-        /*<![CDATA[*/
         function validateLoginForm() {
-            // Reset error messages
             document.getElementById("loginError").innerText = "";
 
-            // Get form inputs
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
 
-            // Basic validation
             if (username.trim() === "" || password.trim() === "") {
                 document.getElementById("loginError").innerText = "Please fill in all fields.";
-                return false; // Prevent form submission
+                return false;
             }
-
-            // Additional validation (e.g., password strength)
-
-            // For demonstration purposes, always return true here (replace with actual validation logic)
             return true;
         }
-        /*]]>*/
     </script>
 </body>
 

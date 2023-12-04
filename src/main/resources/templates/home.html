@@ -2,37 +2,37 @@
 <html lang="en" xmlns="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Your Application</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Your Application</title>
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <h1>Your Application Name</h1>
-            <nav>
-                <ul>
-                    <li><a th:href="@{/home}">Home</a></li>
-                    <li><a th:href="@{/login}">Login</a></li>
-                    <li><a th:href="@{/register}">Register</a></li>
-                    <li><a th:href="@{/studentList}">All Students</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+	<header>
+		<div class="container">
+			<h1>Student Management</h1>
+			<nav>
+				<ul>
+					<li><a th:href="@{/home}">Home</a></li>
+					<li><a th:href="@{/login}">Login</a></li>
+					<li><a th:href="@{/register}">Register</a></li>
+					<li><a th:href="@{/studentList}">All Students</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
 
-    <main>
-        <section id="home">
-            <div class="container">
-                <h2>Welcome to Your Application!</h2>
-                <p>This is the main landing page content. You can add more information here.</p>
-            </div>
-        </section>
-    </main>
+	<main>
+		<section id="home"
+			th:style="'background-image: url(' + @{/images/school.jpg} + '); background-size: cover; height: 88vh;'">
+			<div class="container">
+			</div>
+		</section>
+	</main>
 
-    <script src="script.js"></script>
+
+
 </body>
 
 </html>

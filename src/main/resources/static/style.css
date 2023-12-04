@@ -12,7 +12,7 @@ header {
 
 .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
@@ -56,4 +56,32 @@ main section {
         margin-right: 0;
         margin-bottom: 10px;
     }
+    .container ul{
+		display: flex;
+		flex-direction: column;
+	}
+    
+    #home .container {
+        width: 80%;
+    }
+    
+    main section{
+		width: 90vw;
+	}
 }
+
+#home {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+#home .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+
